@@ -20,12 +20,18 @@ public class AgendaRestController {
 	}
 
 	@GetMapping("/agenda/{id}")
-	public Agenda show(@PathVariable Integer id){
+	public Agenda show(@PathVariable Integer id) {
 		return agendaService.findOne(id);
 	}
+
 	@PostMapping("/crear-agenda")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Agenda create(@RequestBody Agenda agenda){
+	public Agenda create(@RequestBody Agenda agenda) {
 		return agendaService.save(agenda);
+	}
+
+	@GetMapping("agenda/search/findByDescriptionContaining")
+	public List<Agenda> buscar(@RequestParam("text") String text) {
+		return agendaService.findByDescription(text);
 	}
 }
