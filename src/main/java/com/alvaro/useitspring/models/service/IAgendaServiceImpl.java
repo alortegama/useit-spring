@@ -22,14 +22,13 @@ public class IAgendaServiceImpl implements IAgendaService {
 	}
 
 	private Sort sortByDateAsc() {
-		return new Sort(Sort.Direction.ASC, "data");
+		return new Sort(Sort.Direction.ASC, "date");
 	}
 
 	@Override
 	@Transactional(readOnly = true)
 	public List<Agenda> findByDescription(String text) {
-		Log.debug("Texto recibido: " + text);
-		return agendaDao.findAgendaByDescriptionIsContainingIgnoreCaseOrderByDataAsc(text);
+		return agendaDao.findAgendaByDescriptionIsContainingIgnoreCaseOrderByDateAsc(text);
 	}
 
 	@Override

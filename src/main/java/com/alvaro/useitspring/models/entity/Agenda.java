@@ -21,7 +21,9 @@ public class Agenda implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@NotNull
-	private Date data;
+	private Date date;
 	@NotEmpty
 	private String description;
+	@NotEmpty
+	private String location;
 }

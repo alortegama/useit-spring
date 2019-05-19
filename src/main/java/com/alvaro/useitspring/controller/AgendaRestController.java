@@ -27,6 +27,7 @@ public class AgendaRestController {
 	@PostMapping("/crear-agenda")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Agenda create(@RequestBody Agenda agenda) {
+		System.out.println(agenda);
 		return agendaService.save(agenda);
 	}
 
