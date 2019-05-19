@@ -67,9 +67,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests().antMatchers(HttpMethod.GET, "/agenda")
-				.permitAll().antMatchers(HttpMethod.POST, "/crear-agenda*/**").hasRole("ADMIN").antMatchers(HttpMethod.GET, "/agenda*/**").hasRole("USER").and()
-				.httpBasic().realmName("UseIt").and().cors().and().csrf().disable().headers().frameOptions().sameOrigin();
+		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+				.and().authorizeRequests()
+				.antMatchers(HttpMethod.GET, "/agenda").permitAll()
+				.antMatchers(HttpMethod.GET, "/agenda/search/**").permitAll()
+				.antMatchers(HttpMethod.POST, "/crear-agenda*/**").hasRole("ADMIN")
+				.antMatchers(HttpMethod.GET, "/agenda*/**").authenticated()
+				.and()
+				.httpBasic().realmName("UseIt")
+				.and().cors()
+				.and().csrf().disable()
+				.headers().frameOptions().sameOrigin();
 	}
 
 	@Bean
