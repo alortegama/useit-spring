@@ -1,6 +1,5 @@
 package com.alvaro.useitspring.models.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

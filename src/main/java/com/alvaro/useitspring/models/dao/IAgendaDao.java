@@ -7,6 +7,5 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface IAgendaDao extends PagingAndSortingRepository<Agenda, Integer> {
-	List<Agenda> findAgendaByDescriptionIsContainingOrderByDataAsc(@Param("text") String text);
-
+	List<Agenda> findAgendaByDescriptionIsContainingIgnoreCaseOrderByDataAsc(@Param("text") String text);
 }

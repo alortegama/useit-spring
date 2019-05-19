@@ -1,9 +1,8 @@
 package com.alvaro.useitspring.models.service;
 
-		import com.alvaro.useitspring.models.entity.Agenda;
-		import org.springframework.data.repository.query.Param;
+import com.alvaro.useitspring.models.entity.Agenda;
 
-		import java.util.List;
+import java.util.List;
 
 public interface IAgendaService {
 	List<Agenda> findAll();
@@ -11,7 +10,6 @@ public interface IAgendaService {
 	Agenda save(Agenda cliente);
 
 	Agenda findOne(Integer id);
-
 
 	void delete(Integer id);
 
